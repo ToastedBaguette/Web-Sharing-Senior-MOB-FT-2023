@@ -1,0 +1,22 @@
+@import url('https://fonts.cdnfonts.com/css/broken-console');
+@import url('https://fonts.cdnfonts.com/css/04b30');
+
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+
+.text-mob {
+    font-family: "Broken Console", sans-serif;
+}
+
+.title-mob {
+    font-family: '04b', sans-serif;
+}
