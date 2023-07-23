@@ -20,42 +20,43 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: #120238;">
     <div class="container">
-        <div class="row text-center">
-            <div class="col-md-4 col-6 p-2 p-md-5">
+        <div class="row">
+            <div class="col-md-6 p-3 p-md-4">
                 <div class="card">
-                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="Petuah">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Petuah</h5>
-                        <p class="badge rounded-pill text-bg-success">Success</p>
+                    <div class="row g-0">
+                        <div class="d-flex col-4">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover" class="img-fluid rounded-start"">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body h-100 d-flex align-items-center">
+                                <div>
+                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
+                                    <p class="card-text mb-2">Jurusan</p>
+                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
+                                    <button type="button" class="btn btn-rounded btn-outline-info">Detail</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-6 p-2 p-md-5">
+            <div class="col-md-6 p-3 p-md-4">
                 <div class="card">
-                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="Petuah">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Petuah</h5>
-                        <p class="badge rounded-pill text-bg-success">Success</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-6 p-2 p-md-5">
-                <div class="card">
-                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="Petuah">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Petuah</h5>
-                        <p class="badge rounded-pill text-bg-success">Success</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-6 p-2 p-md-5">
-                <div class="card">
-                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="Petuah">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Petuah</h5>
-                        <p class="badge rounded-pill text-bg-success">Success</p>
+                    <div class="row g-0">
+                        <div class="d-flex col-4">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover" class="img-fluid rounded-start"">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body h-100 d-flex align-items-center">
+                                <div>
+                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
+                                    <p class="card-text mb-2">Jurusan</p>
+                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
