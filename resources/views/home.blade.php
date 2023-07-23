@@ -23,43 +23,110 @@
 <body style="background-color: #120238;">
     <div class="container">
         <div class="row">
+            {{-- Card Petuah --}}
             <div class="col-md-6 p-3 p-md-4">
                 <div class="card">
                     <div class="row g-0">
                         <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover" class="img-fluid rounded-start"">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                                class="img-fluid rounded-start"">
                         </div>
                         <div class="col-8">
                             <div class="card-body h-100 d-flex align-items-center">
-                                <div>
+                                <div class="w-100">
                                     <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
                                     <p class="card-text mb-2">Jurusan</p>
                                     <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
-                                    <button type="button" class="btn btn-rounded btn-outline-info">Detail</button>
+                                    <div class="d-flex flex-row-reverse">
+                                        <a href="{{ route('detailpetuah') }}"
+                                            class="btn btn-rounded btn-outline-info">Detail</a>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+            {{-- Card Petuah --}}
             <div class="col-md-6 p-3 p-md-4">
                 <div class="card">
                     <div class="row g-0">
                         <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover" class="img-fluid rounded-start"">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                                class="img-fluid rounded-start"">
                         </div>
                         <div class="col-8">
                             <div class="card-body h-100 d-flex align-items-center">
-                                <div>
+                                <div class="w-100">
                                     <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
                                     <p class="card-text mb-2">Jurusan</p>
                                     <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
+                                    <div class="d-flex flex-row-reverse">
+                                        <a href="{{ route('detailpetuah') }}"
+                                            class="btn btn-rounded btn-outline-info">Detail</a>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+            {{-- Card Petuah --}}
+            <div class="col-md-6 p-3 p-md-4">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="d-flex col-4">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                                class="img-fluid rounded-start"">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body h-100 d-flex align-items-center">
+                                <div class="w-100">
+                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
+                                    <p class="card-text mb-2">Jurusan</p>
+                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
+                                    <div class="d-flex flex-row-reverse">
+                                        <a href="{{ route('detailpetuah') }}"
+                                            class="btn btn-rounded btn-outline-info">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Card Petuah --}}
+            <div class="col-md-6 p-3 p-md-4">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="d-flex col-4">
+                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                                class="img-fluid rounded-start"">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body h-100 d-flex align-items-center">
+                                <div class="w-100">
+                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
+                                    <p class="card-text mb-2">Jurusan</p>
+                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
+                                    <div class="d-flex flex-row-reverse">
+                                        <a href="{{ route('detailpetuah') }}"
+                                            class="btn btn-rounded btn-outline-info">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
