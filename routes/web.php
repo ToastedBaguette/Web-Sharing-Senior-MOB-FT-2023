@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/detailpetuah', function () {
     return view('detailpetuah');
 })->name('detailpetuah');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
