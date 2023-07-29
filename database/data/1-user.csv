@@ -1,0 +1,31 @@
+id;username;password;name;role;created_at;updated_at
+1;acara;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;ED;Admin;now;now
+2;itd;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;ITDD;Admin;now;now
+3;eunike;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Eunike Putri Permatasari;Senior;now;now
+4;vincentius;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Vincentius Owen;Senior;now;now
+5;rasyid;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Rasyid Febrianto Adi Nugroho;Senior;now;now
+6;theofilus;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Theofilus Arifin;Senior;now;now
+7;gede;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Gede Darma;Senior;now;now
+8;aliv;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Alvin Fernando;Senior;now;now
+9;henri;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Henri Jayanata Kusuma;Senior;now;now
+10;jabesh;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Jabesh Nehemiah Wijaya;Senior;now;now
+11;reynard;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Reynard Nathanael;Senior;now;now
+12;meliyana;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Meliyana;Senior;now;now
+13;valencia;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Valencia;Senior;now;now
+14;clarissa;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Clarissa Indrayani;Senior;now;now
+15;tifanny;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Tiffany Emmanuela Hermawan;Senior;now;now
+16;kelompok1;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 1;Group;now;now
+17;kelompok2;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 2;Group;now;now
+18;kelompok3;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 3;Group;now;now
+19;kelompok4;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 4;Group;now;now
+20;kelompok5;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 5;Group;now;now
+21;kelompok6;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 6;Group;now;now
+22;kelompok7;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 7;Group;now;now
+23;kelompok8;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 8;Group;now;now
+24;kelompok9;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 9;Group;now;now
+25;kelompok10;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 10;Group;now;now
+26;kelompok11;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 11;Group;now;now
+27;kelompok12;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 12;Group;now;now
+28;kelompok13;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 13;Group;now;now
+29;kelompok14;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 14;Group;now;now
+30;kelompok15;$2a$04$Lp38V6rmEzE1M/qyZc5v5eif4c2eap0B5WpGgr8r5qC2VBZdwpvai;Kelompok 15;Group;now;now

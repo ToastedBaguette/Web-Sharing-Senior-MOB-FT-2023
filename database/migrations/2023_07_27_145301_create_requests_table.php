@@ -21,6 +21,7 @@ class CreateRequestsTable extends Migration
             $table->foreign('senior_id')->references('id')->on('seniors')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('status');
+            $table->timestamp('updated_at');
         });
     }
 

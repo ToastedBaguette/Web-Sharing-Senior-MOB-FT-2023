@@ -1,0 +1,14 @@
+id;user_id;location;major;photo;is_available
+1;3;TF 3.1;Teknik Industri 2020;-;1
+2;4;TF 4.2;Teknik Industri 2020;-;1
+3;5;TF 3.3;Teknik Elektro 2020;-;1
+4;6;TF 2.2;Teknik Informatika 2020;-;1
+5;7;TF 3.2;Teknik Informatika 2020;-;1
+6;8;TF 4.3;Teknik Informatika 2020;-;1
+7;9;TB 01.01 A;Teknik Informatika 2020;-;1
+8;10;TF 2.3;Sistem Informasi Bisnis 2020;-;1
+9;11;TB 01.01 B;Sistem Informasi Bisnis 2020;-;1
+10;12;TF 2.1;Multimedia 2020;-;1
+11;13;TF 4.1 B;Multimedia 2020;-;1
+12;14;TF 2.5;Teknik Kimia 2020;-;1
+13;15;TF 4.1 A;Teknik Mesin Manufaktur 2019;-;1
