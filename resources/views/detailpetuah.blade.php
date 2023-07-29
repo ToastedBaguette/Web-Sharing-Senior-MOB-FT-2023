@@ -29,10 +29,11 @@
             <div class="card-body text-center">
                 <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
                     class="img-fluid rounded mw-100 mb-3">
-                <h5 class="card-title text-mob">Nama Petuah</h5>
-                <p class="card-text text-secondary">Jurusan</p>
-                <p class="card-text fw-bold">Lokasi: TB 4.1</p>
-                <a href="#" class="btn btn-primary">Request</a>
+                <h5 class="card-title text-mob">{{ $senior->user->name }}</h5>
+                <p class="card-text text-secondary">{{ $senior->major }}</p>
+                <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
+                <a href="/home" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-success">Request</a>
             </div>
         </div>
     </div>

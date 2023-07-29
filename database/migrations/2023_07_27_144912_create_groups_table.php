@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('is_waiting');	
             $table->boolean('is_success');	
         });
     }

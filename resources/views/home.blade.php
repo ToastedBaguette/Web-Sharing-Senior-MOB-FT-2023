@@ -23,109 +23,43 @@
 <body style="background-color: #120238;">
     <div class="container">
         <div class="row">
-            {{-- Card Petuah --}}
-            <div class="col-md-6 p-3 p-md-4">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
-                                class="img-fluid rounded-start"">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
-                                    <p class="card-text mb-2">Jurusan</p>
-                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
-                                    <div class="d-flex flex-row-reverse">
-                                        <a href="{{ route('detailpetuah') }}"
-                                            class="btn btn-rounded btn-outline-info">Detail</a>
+            @foreach ($seniors as $senior)
+                {{-- Card Petuah --}}
+                <div class="col-md-6 p-3 p-md-4">
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="d-flex col-4">
+                                <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                                    class="img-fluid rounded-start"">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body h-100 d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h5 class="card-title text-mob mb-2">{{ $senior->name }}</h5>
+                                        <p class="card-text mb-2">{{ $senior->senior->major }}</p>
+                                        @if($senior->senior->is_available == 1)
+                                            <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
+                                            <div class="d-flex flex-row-reverse">
+                                                <button class="btn btn-rounded btn-outline-info" onclick="location.href='{{ url('detail/'. $senior->senior->id) }}'">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        @else
+                                            <p class=" badge rounded-pill m-0 text-bg-danger">Not Available</p>
+                                            <div class="d-flex flex-row-reverse" disabled>
+                                                <button disabled="disabled" class="btn btn-rounded btn-outline-secondary" onclick="location.href='{{ url('detail/'. $senior->senior->id) }}'">
+                                                    Detail
+                                                </button>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {{-- Card Petuah --}}
-            <div class="col-md-6 p-3 p-md-4">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
-                                class="img-fluid rounded-start"">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
-                                    <p class="card-text mb-2">Jurusan</p>
-                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
-                                    <div class="d-flex flex-row-reverse">
-                                        <a href="{{ route('detailpetuah') }}"
-                                            class="btn btn-rounded btn-outline-info">Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Card Petuah --}}
-            <div class="col-md-6 p-3 p-md-4">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
-                                class="img-fluid rounded-start"">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
-                                    <p class="card-text mb-2">Jurusan</p>
-                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
-                                    <div class="d-flex flex-row-reverse">
-                                        <a href="{{ route('detailpetuah') }}"
-                                            class="btn btn-rounded btn-outline-info">Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Card Petuah --}}
-            <div class="col-md-6 p-3 p-md-4">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
-                                class="img-fluid rounded-start"">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <h5 class="card-title text-mob mb-2">Nama Petuah</h5>
-                                    <p class="card-text mb-2">Jurusan</p>
-                                    <p class=" badge rounded-pill m-0 text-bg-success">Success</p>
-                                    <div class="d-flex flex-row-reverse">
-                                        <a href="{{ route('detailpetuah') }}"
-                                            class="btn btn-rounded btn-outline-info">Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
