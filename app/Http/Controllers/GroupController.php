@@ -2,14 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
+use App\Senior;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class GroupController extends Controller
 {
     public function index()
     {
         $seniors = User::where('role','Senior')->get();
-        return view('home', compact('seniors'));
+
+        $user = Auth::user();
+        $group = Group::where('user_id',$user->id)->first();
+        return view('home', compact('seniors', 'group'));
+    }
+
+    function request(Request $request) {
+        $senior_id = $request->senior_id;
+        $user = Auth::user();
+        $group = Group::where('user_id',$user->id)->first();
+        $group_id = $group->id;
+        $group->increment('is_waiting');
+        DB::table('requests')->insert([
+            "group_id" => $group_id,
+            "senior_id" => $senior_id,
+            "status" => "WAITING",
+        ]);
+
+        return response()->json(array(
+            'msg' => "success"
+        ), 200);
     }
 }

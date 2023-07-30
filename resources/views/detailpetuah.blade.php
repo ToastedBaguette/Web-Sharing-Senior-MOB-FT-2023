@@ -33,13 +33,34 @@
                 <p class="card-text text-secondary">{{ $senior->major }}</p>
                 <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
                 <a href="/home" class="btn btn-primary">Back</a>
-                <a href="#" class="btn btn-success">Request</a>
+                <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    {{-- Ajax --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        const tes = (id) => {
+            let senior_id = id
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('request') }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'senior_id': senior_id,
+                },
+                success: function(data) {
+                    window.location.href = "{{ route('home')}}"
+                    
+                }
+            }) 
+        }
     </script>
 </body>
 

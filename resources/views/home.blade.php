@@ -37,13 +37,22 @@
                                     <div class="w-100">
                                         <h5 class="card-title text-mob mb-2">{{ $senior->name }}</h5>
                                         <p class="card-text mb-2">{{ $senior->senior->major }}</p>
-                                        @if($senior->senior->is_available == 1)
+                                        @if($group->is_waiting == 1)
+                                            <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
+                                            <div class="d-flex flex-row-reverse" disabled>
+                                                <button disabled="disabled" class="btn btn-rounded btn-outline-secondary" onclick="location.href='{{ url('detail/'. $senior->senior->id) }}'">
+                                                    Detail
+                                                </button>
+                                            </div>
+
+                                        @elseif($senior->senior->is_available == 1 )
                                             <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
                                             <div class="d-flex flex-row-reverse">
                                                 <button class="btn btn-rounded btn-outline-info" onclick="location.href='{{ url('detail/'. $senior->senior->id) }}'">
                                                     Detail
                                                 </button>
                                             </div>
+                                        
                                         @else
                                             <p class=" badge rounded-pill m-0 text-bg-danger">Not Available</p>
                                             <div class="d-flex flex-row-reverse" disabled>

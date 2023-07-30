@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'GroupController@index')->name('home');
 Route::get('/detail/{id}', 'SeniorController@index')->name('detail');
+Route::post('/request', 'GroupController@request')->name('request');
