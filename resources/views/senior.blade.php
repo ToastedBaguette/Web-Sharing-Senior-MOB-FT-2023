@@ -26,7 +26,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
-<body style="background-color: #cdcdcd">
+<body style="background-color: #40128b">
     <div class="container p-3">
         <div class="gameboy">
             <div class="screen-container">
