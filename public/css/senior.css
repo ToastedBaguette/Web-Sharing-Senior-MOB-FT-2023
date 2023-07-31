@@ -47,6 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    box-shadow: inset 4px 4px 15px #fff;
 }
 
 
