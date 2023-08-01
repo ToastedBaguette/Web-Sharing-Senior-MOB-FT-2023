@@ -34,7 +34,11 @@
                     <div class="green-dot"></div>
                 </div>
                 <div class="screen">
-                    <h3 class="title">Kelompok 1</h3>
+                    @if($group == "")
+                        <h3 class="title">NO REQUEST</h3>
+                    @else
+                        <h3 class="title" id="user">{{ $group->user->name }}</h3>
+                    @endif
                 </div>
             </div>
             <div class="control-container mt-5">
@@ -52,8 +56,16 @@
                     </div>
                     <div class="col">
                         <div class="button-wrapper">
-                            <button class="red-button" id="button-a"><h2>A</h2></button>
-                            <button class="red-button" id="button-b"><h2>B</h2></button>
+                            @if($group == "")
+                                <button disabled class="red-button" id="button-a"><h2>A</h2></button>
+                                <button disabled class="red-button" id="button-b"><h2>B</h2></button>
+                            @else
+                                <input type="hidden" name="group_id" id = "group_id" value="{{ $group->id }}">
+                                <input type="hidden" name="senior_id" id = "senior_id" value="{{ $senior->id }}">
+                                <input type="hidden" name="senior_status" id = "senior_status" value="{{ $senior->is_available }}">
+                                <button class="red-button" id="button-a" onclick="response(1, '{{ $group->user->name }}')"><h2>A</h2></button>
+                                <button class="red-button" id="button-b" onclick="response(0, '{{ $group->user->name }}')"><h2>B</h2></button>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -62,5 +74,48 @@
         </div>
         
     </div>
+
+    <script src="../js/app.js"></script>
+    <script type="text/javascript">
+        window.Echo.channel('send-request.' + {{ $senior->id }}).listen('.request', (e) => {
+            alert('There is an incoming request')
+            location.reload()
+        })
+
+        const response = (res,name) =>{
+            let status = ''
+            let group_id = $('#group_id').val()
+            let senior_id = $('#senior_id').val()
+            let senior_status = $('#senior_status').val()
+
+            
+            if(res == 1){
+                status = 'ACCEPTED'
+                if (!confirm("Are you sure to ACCEPT " + name + "?")) return
+                
+                if(senior_status == 0){
+                    alert('You have accepted a group before, if you want to accept this group, then cancel the previous one')
+                    return
+                }
+            }else{
+                status = 'REJECTED'
+                if (!confirm("Are you sure to REJECT " + name + "?")) return
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '{{ route("send.response") }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'group_id': group_id,
+                    'senior_id': senior_id,
+                    'status': status,
+                },
+                success: function(data) {
+                    location.reload()
+                }
+            })
+        }
+    </script>
 </body>
 </html>

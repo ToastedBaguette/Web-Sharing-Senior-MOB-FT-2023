@@ -57,7 +57,6 @@
                 },
                 success: function(data) {
                     window.location.href = "{{ route('home')}}"
-                    
                 }
             }) 
         }

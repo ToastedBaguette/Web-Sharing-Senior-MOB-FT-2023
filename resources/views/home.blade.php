@@ -56,10 +56,14 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <p class="card-text">Nama : Kelompok 1</p>
-                                <p class="m-0">Status : <span class="badge bg-success">Accepted</span></p>
-                                {{-- <p>Status : <span class="badge bg-danger">Not Accepted</span></p>
-                                <p>Status : <span class="badge bg-warning">Waiting</span></p> --}}
+                                <p class="card-text">Nama : {{ $group->user->name }}</p>
+                                @if ($group->is_success == 1 && $group->is_waiting == 0)
+                                    <p class="m-0">Status : <span class="badge bg-success">Accepted</span></p>
+                                @elseif($group->is_success == 0 && $group->is_waiting == 0)
+                                    <p>Status : <span class="badge bg-danger">Not Accepted</span></p>
+                                @else
+                                    <p>Status : <span class="badge bg-warning">Waiting</span></p>
+                                @endif
                             </div>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <button class="nes-btn is-error" id="btn-logout" href="{{ route('logout') }}"
@@ -90,7 +94,7 @@
                                 <div class="w-100">
                                     <h5 class="card-title text-mob mb-2">{{ $senior->name }}</h5>
                                     <p class="card-text mb-2">{{ $senior->senior->major }}</p>
-                                    @if ($group->is_waiting == 1)
+                                    @if ($group->is_waiting == 1 | $group->is_success == 1)
                                         <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
                                         <div class="d-flex flex-row-reverse" disabled>
                                             <button disabled="disabled" class="btn btn-rounded btn-outline-secondary"
@@ -129,6 +133,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+
+    <script src="../js/app.js"></script>
+    <script type="text/javascript">
+        window.Echo.channel('send-response').listen('.response', (e) => {
+            location.reload()
+        })
     </script>
 </body>
 

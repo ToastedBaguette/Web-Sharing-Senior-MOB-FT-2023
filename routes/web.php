@@ -19,9 +19,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/senior', function(){
-    return view('senior');
-});
+Route::get('/detail/{id}', 'SeniorController@detail')->name('detail');
+Route::get('/senior', 'SeniorController@index')->name('senior');
+Route::post('/send-response', 'SeniorController@sendResponse')->name('send.response');
+
+
+
 Route::get('/home', 'GroupController@index')->name('home');
-Route::get('/detail/{id}', 'SeniorController@index')->name('detail');
 Route::post('/request', 'GroupController@request')->name('request');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendRequest;
 use App\Group;
 use App\Senior;
 use App\User;
@@ -22,7 +23,7 @@ class GroupController extends Controller
     }
 
     function request(Request $request) {
-        $senior_id = $request->senior_id;
+        $senior_id = (int)$request->senior_id;
         $user = Auth::user();
         $group = Group::where('user_id',$user->id)->first();
         $group_id = $group->id;
@@ -32,6 +33,8 @@ class GroupController extends Controller
             "senior_id" => $senior_id,
             "status" => "WAITING",
         ]);
+
+        event(new SendRequest($senior_id));
 
         return response()->json(array(
             'msg' => "success"
