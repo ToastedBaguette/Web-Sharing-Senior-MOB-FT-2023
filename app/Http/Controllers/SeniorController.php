@@ -30,8 +30,10 @@ class SeniorController extends Controller
 
         if ($senior->is_available == 1) {
             $accepted = "";
+            $accepted_group = '';
         } else {
             $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->get();
+            $accepted_group = Group::where('id', $accepted->group_id)->first();
         }
         return view('senior', compact('senior', 'group', 'rejected', 'accepted'));
     }
