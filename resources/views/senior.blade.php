@@ -103,19 +103,14 @@
             </div>
         </div>
     </div>
-    <button type="button" onclick="audio.play()">Click</button>
-
 
     <script src="../js/app.js"></script>
-   
     <script type="text/javascript">
+
         window.Echo.channel('send-request.' + {{ $senior->id }}).listen('.request', (e) => {
             alert('There is an incoming request')
             location.reload()
         })
-
-        const audio = new Audio();
-        audio.src = '/audio/sound.mp3';
 
         const response = (res, name) => {
             let status = ''

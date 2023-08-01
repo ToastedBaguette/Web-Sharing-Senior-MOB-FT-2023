@@ -224,6 +224,19 @@ ul, li{
     box-shadow: inset 2px 3px 2px #fff;
 }
 
+.gray-button:hover{
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+}
+
+.gray-button:active {
+    background-color: #808080;
+    box-shadow: 0 2px #000;
+    border: 2px solid #000;
+    transform: translateY(4px) rotate(-30deg);
+    color: #2e2134;
+    transition: 0.1s ease;
+}
+
 #history-button{
     top: 140px;
     left: 120px;
@@ -231,8 +244,8 @@ ul, li{
 
 #history-text{
     position: absolute;
-    top: 159px;
-    left: 132px;
+    top: 163px;
+    left: 136px;
     font-family: 'Broken Console', sans-serif !important;
     transform: rotate(-30deg);
     color: #3c3f89;
@@ -289,5 +302,4 @@ ul, li{
         align-items: center;
         flex-direction: column;
     }
-    
 }
