@@ -34,6 +34,7 @@ class SeniorController extends Controller
         } else {
             $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->get();
             $accepted_group = Group::where('id', $accepted->group_id)->first();
+            $accepted_group = User::where('id', $accepted_group->user_id)->first();
         }
         return view('senior', compact('senior', 'group', 'rejected', 'accepted'));
     }
