@@ -23,13 +23,13 @@ Route::group(['middleware' => ['auth', 'group']],
     function () {
         Route::get('/home', 'GroupController@index')->name('home');
         Route::post('/request', 'GroupController@request')->name('request');
+        Route::get('/detail/{id}', 'SeniorController@detail')->name('detail');
     }
 );
 
 // Senior
 Route::group(['middleware' => ['auth', 'senior']],
     function () {        
-        Route::get('/detail/{id}', 'SeniorController@detail')->name('detail');
         Route::get('/senior', 'SeniorController@index')->name('senior');
         Route::post('/send-response', 'SeniorController@sendResponse')->name('send.response');
     }
