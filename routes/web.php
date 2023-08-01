@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'senior']],
     function () {        
         Route::get('/senior', 'SeniorController@index')->name('senior');
         Route::post('/send-response', 'SeniorController@sendResponse')->name('send.response');
+        Route::post('/cancel-request', 'SeniorController@cancelRequest')->name('send.cancel');
     }
 );
 
