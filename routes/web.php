@@ -14,16 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login2');
 
 Auth::routes();
-Route::get('/detail/{id}', 'SeniorController@detail')->name('detail');
-Route::get('/senior', 'SeniorController@index')->name('senior');
-Route::post('/send-response', 'SeniorController@sendResponse')->name('send.response');
+
+// Group
+Route::group(['middleware' => ['auth', 'group']],
+    function () {
+        Route::get('/home', 'GroupController@index')->name('home');
+        Route::post('/request', 'GroupController@request')->name('request');
+    }
+);
+
+// Senior
+Route::group(['middleware' => ['auth', 'senior']],
+    function () {        
+        Route::get('/detail/{id}', 'SeniorController@detail')->name('detail');
+        Route::get('/senior', 'SeniorController@index')->name('senior');
+        Route::post('/send-response', 'SeniorController@sendResponse')->name('send.response');
+    }
+);
 
 
 
-Route::get('/home', 'GroupController@index')->name('home');
-Route::post('/request', 'GroupController@request')->name('request');
+
