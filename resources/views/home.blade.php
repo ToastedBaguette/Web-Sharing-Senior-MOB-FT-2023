@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row px-2">
         @foreach ($seniors as $senior)
             {{-- Card Petuah --}}
             <div class="col-md-6 p-3 p-md-4">
