@@ -20,7 +20,7 @@ class SeniorController extends Controller
 
         $request = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'WAITING')->orderBy('updated_at')->get();
 
-        $history = DB::table('requests')->where('senior_id', $senior->id)->where('status','!=' , 'WAITING')->orderBy('updated_at')->get();
+        $rejected = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'REJECTED')->orderBy('updated_at')->get();
 
         if (count($request) == 0) {
             $group = "";
@@ -28,13 +28,12 @@ class SeniorController extends Controller
             $group = Group::where('id', $request[0]->group_id)->first();
         }
 
-        if($senior->is_available == 1){
+        if ($senior->is_available == 1) {
             $accepted = "";
-        }
-        else{
+        } else {
             $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->get();
         }
-        return view('senior', compact('senior', 'group', 'history', 'accepted'));
+        return view('senior', compact('senior', 'group', 'rejected', 'accepted'));
     }
 
     function detail($id)
@@ -67,6 +66,28 @@ class SeniorController extends Controller
             $senior = Senior::where('id', $senior_id)->first();
             $senior->decrement('is_available');
         }
+
+        event(new SendResponse('response'));
+
+        return response()->json(array(
+            'msg' => "success"
+        ), 200);
+    }
+
+    function cancelRequest(Request $request)
+    {
+        $group_id = $request->group_id;
+        $senior_id = $request->senior_id;
+        $status = 'REJECTED';
+
+        DB::table('requests')->where('senior_id', $senior_id)->where('group_id', $group_id)->update(['status' => $status]);
+
+        $group = Group::where('id', $group_id)->first();
+        $group->decrement('is_success');
+
+        $senior = Senior::where('id', $senior_id)->first();
+        $senior->increment('is_available');
+
 
         event(new SendResponse('response'));
 
