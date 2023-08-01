@@ -27,7 +27,7 @@ class SeniorController extends Controller
         foreach($rejected as $temp){
             $rejected_group = Group::where('id', $temp->group_id)->first();
             $temp2 = User::where('id', $rejected_group->user_id)->first();
-            array_push($temp2, $rejected_user);
+            array_push($rejected_user,$temp2);
         }
 
         if (count($request) == 0) {
@@ -39,11 +39,13 @@ class SeniorController extends Controller
         if ($senior->is_available == 1) {
             $accepted = "";
             $accepted_group = '';
+            $accepted_user="";
         } else {
             $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->get();
             $accepted_group = Group::where('id', $accepted[0]->group_id)->first();
             $accepted_user = User::where('id', $accepted_group->user_id)->first();
         }
+        
         return view('senior', compact('senior', 'group', 'rejected', 'accepted', 'accepted_group', 'accepted_user', 'rejected_user'));
     }
 

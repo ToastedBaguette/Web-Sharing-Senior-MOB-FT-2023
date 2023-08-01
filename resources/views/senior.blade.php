@@ -171,8 +171,9 @@
             <section class="rejected-section">
                 <h4>=== Rejected ===</h4>
                 <ul>
-                    <li>Kelompok 2</li>
-                    <li>Kelompok 3</li>
+                    @foreach ($rejected_user as $user)
+                        <li>{{$user->name}}</li>
+                    @endforeach
                 </ul>
             </section>
           
