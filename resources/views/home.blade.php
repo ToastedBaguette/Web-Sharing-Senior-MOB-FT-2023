@@ -58,12 +58,13 @@
                             <div class="col-8">
                                 <p class="card-text">Nama : {{ $group->user->name }}</p>
                                 @if ($group->is_success == 1 && $group->is_waiting == 0)
-                                    <p class="m-0">Status : <span class="badge bg-success">Accepted</span></p>
+                                    <p>Status : <span class="badge bg-success">Accepted</span></p>
                                 @elseif($group->is_success == 0 && $group->is_waiting == 0)
                                     <p>Status : <span class="badge bg-danger">Not Accepted</span></p>
                                 @else
                                     <p>Status : <span class="badge bg-warning">Waiting</span></p>
                                 @endif
+                                <p class="card-text">Senior : {{ $info }}</p>
                             </div>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <button class="nes-btn is-error" id="btn-logout" href="{{ route('logout') }}"
