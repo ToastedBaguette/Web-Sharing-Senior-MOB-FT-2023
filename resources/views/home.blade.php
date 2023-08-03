@@ -73,10 +73,16 @@
                                 @endif
                                 <p class="card-text">Senior : {{ $info }}</p>
                             </div>
-                            <div class="col d-flex justify-content-center align-items-center">
+                            <div class="col d-flex justify-content-center align-items-center" style="flex-direction: column; gap:16px">
                                 <button class="nes-btn is-error" id="btn-logout" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</button>
-
+                                
+                                    @if($accepted_id!="")
+                                    <button class="btn btn-rounded btn-outline-info"
+                                                onclick="location.href='{{ url('detail/' . $accepted_id) }}'">
+                                                Detail
+                                            </button>
+                                    @endif   
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -101,30 +107,21 @@
                             <div class="card-body h-100 d-flex align-items-center">
                                 <div class="w-100">
                                     <p class="card-title text-mob mb-2 fs-10">{{ $senior->name }}</p>
-                                    <p class="card-text mb-2">{{ $senior->senior->major }}</p>
+                                    {{-- <p class="card-text mb-2">{{ $senior->senior->major }}</p> --}}
                                     @if (($group->is_waiting == 1) | ($group->is_success == 1))
                                         <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
                                         <div class="d-flex flex-row-reverse" disabled>
-                                            <button disabled="disabled" class="btn btn-rounded btn-outline-secondary"
-                                                onclick="location.href='{{ url('detail/' . $senior->senior->id) }}'">
-                                                Detail
-                                            </button>
+                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})" disabled>Request</button>
                                         </div>
                                     @elseif($senior->senior->is_available == 1)
                                         <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
                                         <div class="d-flex flex-row-reverse">
-                                            <button class="btn btn-rounded btn-outline-info"
-                                                onclick="location.href='{{ url('detail/' . $senior->senior->id) }}'">
-                                                Detail
-                                            </button>
+                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})">Request</button>
                                         </div>
                                     @else
                                         <p class=" badge rounded-pill m-0 text-bg-danger">Not Available</p>
                                         <div class="d-flex flex-row-reverse" disabled>
-                                            <button disabled="disabled" class="btn btn-rounded btn-outline-secondary"
-                                                onclick="location.href='{{ url('detail/' . $senior->senior->id) }}'">
-                                                Detail
-                                            </button>
+                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})" disabled>Request</button>
                                         </div>
                                     @endif
                                 </div>
@@ -149,6 +146,21 @@
         window.Echo.channel('send-response').listen('.response', (e) => {
             location.reload()
         })
+
+        const tes = (id) => {
+            let senior_id = id
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('request') }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'senior_id': senior_id,
+                },
+                success: function(data) {
+                    window.location.href = "{{ route('home')}}"
+                }
+            }) 
+        }
 
     </script>
 </body>

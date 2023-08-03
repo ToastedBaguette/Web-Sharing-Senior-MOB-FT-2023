@@ -54,12 +54,13 @@ class SeniorController extends Controller
         $senior = Senior::where('id', $id)->first();
         $user = Auth::user();
         $group = Group::where('user_id', $user->id)->first();
-        if ($senior->is_available == 0 || $group->is_waiting == 1) {
-            $seniors = User::where('role', 'Senior')->get();
-            return Redirect::to('home')->with(['seniors' => $seniors, 'group' => $group]);
-        } else {
-            return view('detailpetuah', compact('senior'));
-        }
+        // if ($senior->is_available == 0 || $group->is_waiting == 1) {
+        //     $seniors = User::where('role', 'Senior')->get();
+        //     return Redirect::to('home')->with(['seniors' => $seniors, 'group' => $group]);
+        // } else {
+        //     return view('detailpetuah', compact('senior'));
+        // }
+        return view('detailpetuah', compact('senior'));
     }
 
     function sendResponse(Request $request)

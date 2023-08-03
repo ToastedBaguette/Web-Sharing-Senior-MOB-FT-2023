@@ -34,7 +34,7 @@
                 <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
                 <p class="card-text" style="text-align: justify">{{ $senior->description }}</p>
                 <a href="/home" class="btn btn-primary">Back</a>
-                <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a>
+                {{-- <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a> --}}
             </div>
         </div>
     </div>
@@ -50,20 +50,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-        const tes = (id) => {
-            let senior_id = id
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('request') }}',
-                data: {
-                    '_token': '<?php echo csrf_token(); ?>',
-                    'senior_id': senior_id,
-                },
-                success: function(data) {
-                    window.location.href = "{{ route('home')}}"
-                }
-            }) 
-        }
+        // const tes = (id) => {
+        //     let senior_id = id
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '{{ route('request') }}',
+        //         data: {
+        //             '_token': '<?php echo csrf_token(); ?>',
+        //             'senior_id': senior_id,
+        //         },
+        //         success: function(data) {
+        //             window.location.href = "{{ route('home')}}"
+        //         }
+        //     }) 
+        // }
     </script>
 </body>
 
