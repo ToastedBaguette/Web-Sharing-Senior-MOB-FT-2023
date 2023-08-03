@@ -1,0 +1,202 @@
+@import url("https://fonts.cdnfonts.com/css/montserrat");
+@import url("https://fonts.cdnfonts.com/css/04b30");
+@import url("https://fonts.cdnfonts.com/css/broken-console");
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #120238 !important;
+    height: 100vh;
+}
+
+main{
+    max-width: 100%;
+}
+
+.title {
+    color: #fff;
+    font-family: "04b", sans-serif;
+    text-shadow: -3px 3px 2px #dd58d6;
+    font-size: 36px !important;
+}
+.card span {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+ }
+
+.card {
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    box-shadow: 0px 0px 19px -4px rgba(221, 88, 214, 1);
+    margin: 0 8px;
+}
+.card-body{
+    z-index: 4;
+}
+
+label{
+    color: #fff;
+}
+
+.image{
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0px 0px 5px #fff);
+}
+
+.title-container{
+    width: 100%;
+    text-align: center;
+}
+
+@media (orientation: portrait) {
+    #app{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* .card span:nth-child(1) {
+    background: #ffda05;
+    animation: 5s span1 infinite linear;
+    animation-delay: 1s;
+    top: 0;
+    left: -48%;
+}
+
+.card span:nth-child(2) {
+    background: #00a800;
+    bottom: 0;
+    right: -48%;
+    animation: 5s span2 infinite linear;
+}
+
+.card span:nth-child(3) {
+    background: #800080;
+    top: 0px;
+    animation: 5s span3 infinite linear;
+    right: -48%;
+}
+
+.card span:nth-child(4) {
+    animation: 5s span4 infinite linear;
+    animation-delay: 1s;
+    background: #ff0000;
+    bottom: 0;
+    right: -48%;
+}
+
+@keyframes span1 {
+    0% {
+        top: -48%;
+        left: -48%;
+    }
+
+    25% {
+        top: -48%;
+        left: 98%;
+    }
+
+    50% {
+        top: 98%;
+        left: 98%;
+    }
+
+    75% {
+        top: 98%;
+        left: -48%;
+    }
+
+    100% {
+        top: -48%;
+        left: -48%;
+    }
+}
+
+@keyframes span2 {
+    0% {
+        bottom: -48%;
+        right: -48%;
+    }
+
+    25% {
+        bottom: -48%;
+        right: 98%;
+    }
+
+    50% {
+        bottom: 98%;
+        right: 98%;
+    }
+
+    75% {
+        bottom: 98%;
+        right: -48%;
+    }
+
+    100% {
+        bottom: -48%;
+        right: -48%;
+    }
+}
+
+@keyframes span3 {
+    0% {
+        top: -48%;
+        left: -48%;
+    }
+
+    25% {
+        top: -48%;
+        left: 98%;
+    }
+
+    50% {
+        top: 98%;
+        left: 98%;
+    }
+
+    75% {
+        top: 98%;
+        left: -48%;
+    }
+
+    100% {
+        top: -48%;
+        left: -48%;
+    }
+}
+
+@keyframes span4 {
+    0% {
+        bottom: -48%;
+        right: -48%;
+    }
+
+    25% {
+        bottom: -48%;
+        right: 98%;
+    }
+
+    50% {
+        bottom: 98%;
+        right: 98%;
+    }
+
+    75% {
+        bottom: 98%;
+        right: -48%;
+    }
+
+    100% {
+        bottom: -48%;
+        right: -48%;
+    }
+} */

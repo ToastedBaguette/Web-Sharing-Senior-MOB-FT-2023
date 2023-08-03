@@ -20,6 +20,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
+        @import url('https://fonts.cdnfonts.com/css/montserrat');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
         .card-kelompok .badge {
             width: 100px;
         }
@@ -68,7 +75,7 @@
                             </div>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <button class="nes-btn is-error" id="btn-logout" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</button>
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</button>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -87,15 +94,15 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                            <img src="{{ asset('img/petuah/' . $senior->senior->photo . '') }}" style="object-fit: cover;"
                                 class="img-fluid rounded-start">
                         </div>
                         <div class="col-8">
                             <div class="card-body h-100 d-flex align-items-center">
                                 <div class="w-100">
-                                    <h5 class="card-title text-mob mb-2">{{ $senior->name }}</h5>
+                                    <p class="card-title text-mob mb-2 fs-10">{{ $senior->name }}</p>
                                     <p class="card-text mb-2">{{ $senior->senior->major }}</p>
-                                    @if ($group->is_waiting == 1 | $group->is_success == 1)
+                                    @if (($group->is_waiting == 1) | ($group->is_success == 1))
                                         <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
                                         <div class="d-flex flex-row-reverse" disabled>
                                             <button disabled="disabled" class="btn btn-rounded btn-outline-secondary"
@@ -137,10 +144,12 @@
     </script>
 
     <script src="../js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         window.Echo.channel('send-response').listen('.response', (e) => {
             location.reload()
         })
+
     </script>
 </body>
 
