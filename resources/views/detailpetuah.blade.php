@@ -32,6 +32,7 @@
                 <h5 class="card-title text-mob">{{ $senior->user->name }}</h5>
                 <p class="card-text text-secondary">{{ $senior->major }}</p>
                 <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
+                <p class="card-text">{{ $senior->description }}</p>
                 <a href="/home" class="btn btn-primary">Back</a>
                 <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a>
             </div>

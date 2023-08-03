@@ -20,6 +20,7 @@ class CreateSeniorsTable extends Migration
             $table->string('location');
             $table->string('major');
             $table->string('photo');
+            $table->longText('description')->nullable();
             $table->boolean('is_available');	
         });
     }
