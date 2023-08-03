@@ -26,6 +26,15 @@ class GroupController extends Controller
             $senior_name = $senior->user->name;
             $info = $senior_name . " (" . $senior->location . ")";
             $accepted_id = $senior_id;
+        }
+        $requests = DB::table('requests')->where('group_id',$group->id)->where('status','WAITING')->get();
+
+        if(count($requests) != 0){
+            $senior_id = $requests[0]->senior_id;
+            $senior = Senior::find($senior_id);
+            $senior_name = $senior->user->name;
+            $info = $senior_name;
+            $accepted_id = "";
         }else{
             $accepted_id = "";
             $info = "-";
