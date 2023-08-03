@@ -27,16 +27,19 @@
                 Petuah
             </div>
             <div class="card-body text-center">
-                <img src="{{ asset('img/petuah_placeholder.jpg') }}" style="object-fit: cover"
+                <img src="{{ asset('img/petuah/' . $senior->photo . '') }}" style="object-fit: cover"
                     class="img-fluid rounded mw-100 mb-3">
                 <h5 class="card-title text-mob">{{ $senior->user->name }}</h5>
                 <p class="card-text text-secondary">{{ $senior->major }}</p>
                 <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
-                <p class="card-text">{{ $senior->description }}</p>
+                <p class="card-text" style="text-align: justify">{{ $senior->description }}</p>
                 <a href="/home" class="btn btn-primary">Back</a>
                 <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a>
             </div>
         </div>
+    </div>
+    <div class="alert alert-warning text-center" role="alert">
+        Sabar, nanti design-nya diubah lagi kok. <br>ITD 🤡
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

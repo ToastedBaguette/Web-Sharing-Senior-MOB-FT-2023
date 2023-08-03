@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
                 <div class="card-body">
+                    <div class="title-container">
+                        <img src="{{ asset('img/logo.png') }}" alt="" class="image">
+                        <h2 class="title mt-3">LOGIN</h2>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -51,9 +56,9 @@
                             </div>
                         </div> --}}
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                        <div class="row mb-0 mt-4 d-flex justify-content-center">
+                            <div class="col-md-8 ">
+                                <button type="submit" class="btn btn-primary w-100">
                                     {{ __('Login') }}
                                 </button>
 
