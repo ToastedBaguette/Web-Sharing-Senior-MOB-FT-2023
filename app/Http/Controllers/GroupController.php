@@ -25,10 +25,12 @@ class GroupController extends Controller
             $senior = Senior::find($senior_id);
             $senior_name = $senior->user->name;
             $info = $senior_name . " (" . $senior->location . ")";
+            $accepted_id = $senior_id;
         }else{
+            $accepted_id = "";
             $info = "-";
         }
-        return view('home', compact('seniors', 'group', 'info'));
+        return view('home', compact('seniors', 'group', 'info', 'accepted_id'));
     }
 
     function request(Request $request) {
