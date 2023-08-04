@@ -50,6 +50,7 @@ body {
     box-shadow: inset 4px 4px 15px #fff;
 }
 
+
 .screen-text{
     font-family: "Broken Console", sans-serif;
     color: #40128b;
@@ -186,6 +187,24 @@ ul, li{
     transform: translateY(4px);
     color: #2e2134;
     transition: 0.1s ease;
+}
+
+.disabled{
+    background-color: #c02379;
+    box-shadow: 0 2px #000;
+    border: 2px solid #000;
+    transform: translateY(0px);
+    color: #2e213477;
+    transition: 0.1s ease; 
+}
+
+.disabled:active{
+    background-color: #c02379;
+    box-shadow: 0 2px #000;
+    border: 2px solid #000;
+    transform: translateY(0px);
+    color: #2e213477;
+    transition: 0.1s ease; 
 }
 
 #btn-logout{

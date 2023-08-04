@@ -69,10 +69,10 @@
                         <div class="button-wrapper">
                             <input type="hidden" name="senior_id" id="senior_id" value="{{ $senior->id }}">
                             @if ($group == '')
-                                <button disabled class="red-button" id="button-a">
+                                <button disabled class="red-button disabled" id="button-a">
                                     <h2>A</h2>
                                 </button>
-                                <button disabled class="red-button" id="button-b">
+                                <button disabled class="red-button disabled" id="button-b">
                                     <h2>B</h2>
                                 </button>
                             @else

@@ -72,14 +72,19 @@ class SeniorController extends Controller
         DB::table('requests')->where('senior_id', $senior_id)->where('group_id', $group_id)->update(['status' => $status]);
 
         $group = Group::where('id', $group_id)->first();
-        $group->decrement('is_waiting');
+        $group->is_waiting = 0;
 
-        if ($status == 'ACCEPTED') {
-            $group->increment('is_success');
+        if ($status == 'ACCEPTED') {    
+            $group->is_success = 1;
 
             $senior = Senior::where('id', $senior_id)->first();
-            $senior->decrement('is_available');
+            $senior->is_available=0;
+        }else if($status == 'REJECTED'){
+            $group->is_waiting = 0;
         }
+
+        $group->save();
+        $senior->save();
 
         event(new SendResponse('response'));
 
