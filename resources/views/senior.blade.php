@@ -38,7 +38,12 @@
         <div class="gameboy mt-5">
             <div class="screen-container">
                 <div class="green-dot-socket">
-                    <div class="green-dot"></div>
+                    @if($accepted != '' || $group != '')
+                        <div class="green-dot"></div>
+                       
+                    @else
+                        <div class="black-dot"></div>
+                    @endif
                 </div>
                 <div class="screen">
                     @if ($group == '')

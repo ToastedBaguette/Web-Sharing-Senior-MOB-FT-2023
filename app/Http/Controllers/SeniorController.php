@@ -81,6 +81,8 @@ class SeniorController extends Controller
             $senior->is_available=0;
         }else if($status == 'REJECTED'){
             $group->is_waiting = 0;
+            $senior = Senior::where('id', $senior_id)->first();
+            $senior->is_available=1;
         }
 
         $group->save();

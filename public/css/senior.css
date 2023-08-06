@@ -87,6 +87,20 @@ ul, li{
     animation: blinker 2s linear infinite;
 }
 
+.black-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    box-shadow: inset 1px 1px #fff;
+    transform: translate(-50%, -50%);
+
+}
+
 @keyframes blinker {
     50% {
         opacity: 0;
