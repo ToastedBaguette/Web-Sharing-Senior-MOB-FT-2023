@@ -20,46 +20,42 @@ class SeniorController extends Controller
 
         $request = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'WAITING')->orderBy('updated_at')->get();
 
-        $rejected = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'REJECTED')->orderBy('updated_at')->get();
-
+        $rejected = DB::table('requests')->distinct('group_id')->where('senior_id', $senior->id)->where('status', 'REJECTED')->orderBy('updated_at')->get();
+        $accepted = DB::table('requests')->distinct('group_id')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->orderBy('updated_at')->get();
         $rejected_user = array();
-
+        $accepted_user = array();
+        
         foreach($rejected as $temp){
             $rejected_group = Group::where('id', $temp->group_id)->first();
             $temp2 = User::where('id', $rejected_group->user_id)->first();
             array_push($rejected_user,$temp2);
         }
-
+        
+        
+        foreach($accepted as $temp){
+            $accepted_group = Group::where('id', $temp->group_id)->first();
+            $temp2 = User::where('id', $accepted_group->user_id)->first();
+            array_push($accepted_user,$temp2);
+        }
+        
         if (count($request) == 0) {
             $group = "";
         } else {
             $group = Group::where('id', $request[0]->group_id)->first();
         }
-
-        if ($senior->is_available == 1) {
-            $accepted = "";
-            $accepted_group = '';
-            $accepted_user="";
-        } else {
-            $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('status', 'ACCEPTED')->first();
-            $accepted_group = Group::where('id', $accepted->group_id)->first();
-            $accepted_user = User::where('id', $accepted_group->user_id)->first();
-        }
         
-        return view('senior', compact('senior', 'group', 'rejected', 'accepted', 'accepted_group', 'accepted_user', 'rejected_user'));
+        return view('senior', compact('senior', 'group', 'rejected', 'accepted', 'accepted_user', 'rejected_user'));
     }
 
     function detail($id)
     {
-        $senior = Senior::where('id', $id)->first();
+        $senior = Senior::find($id);
         $user = Auth::user();
         $group = Group::where('user_id', $user->id)->first();
-        // if ($senior->is_available == 0 || $group->is_waiting == 1) {
-        //     $seniors = User::where('role', 'Senior')->get();
-        //     return Redirect::to('home')->with(['seniors' => $seniors, 'group' => $group]);
-        // } else {
-        //     return view('detailpetuah', compact('senior'));
-        // }
+        $accepted = DB::table('requests')->where('senior_id', $senior->id)->where('group_id', $group->id)->where('status', 'ACCEPTED')->orderBy('updated_at')->get();
+        if(count($accepted) == 0){
+            return redirect()->route('home');
+        }
         return view('detailpetuah', compact('senior'));
     }
 

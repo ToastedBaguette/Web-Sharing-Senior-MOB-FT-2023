@@ -127,13 +127,6 @@
             if (res == 1) {
                 status = 'ACCEPTED'
                 if (!confirm("Are you sure to ACCEPT " + name + "?")) return
-
-                if (senior_status == 0) {
-                    alert(
-                        'You have accepted a group before, if you want to accept this group, then cancel the previous one'
-                    )
-                    return
-                }
             } else {
                 status = 'REJECTED'
                 if (!confirm("Are you sure to REJECT " + name + "?")) return
@@ -154,8 +147,7 @@
             })
         }
 
-        const cancel = (name) => {
-            let group_id = $('#accepted_group_id').val()
+        const cancel = (name, group_id) => {
             let senior_id = $('#senior_id').val()
             if (!confirm("Are you sure to Cancel " + name + "?")) return
 
@@ -186,17 +178,17 @@
                     <section class="accepted-section">
                         <h4>=== Accepted ===</h4>
                         @if ($accepted != '')
-                            <input type="hidden" name="accepted_group_id" id="accepted_group_id"
-                                value="{{ $accepted->group_id }}">
+                            @foreach ($accepted_user as $key => $user)
                             <div class="row">
-                                <div class="col">
-                                    {{ $accepted_user->name }}
+                                    <div class="col">
+                                        {{ $user->name }}
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="cancel('{{ $user->name }}', {{ $accepted[$key]->group_id }})">Cancel</button>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <button type="button" class="btn btn-danger"
-                                        onclick="cancel('{{ $accepted_user->name }}')">Cancel</button>
-                                </div>
-                            </div>
+                            @endforeach
                         @endif
                     </section>
                     <section class="rejected-section">

@@ -111,17 +111,12 @@
                                     @if (($group->is_waiting == 1) | ($group->is_success == 1))
                                         <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
                                         <div class="d-flex flex-row-reverse" disabled>
-                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})" disabled>Request</button>
-                                        </div>
-                                    @elseif($senior->senior->is_available == 1)
-                                        <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
-                                        <div class="d-flex flex-row-reverse">
-                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})">Request</button>
+                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')" disabled>Request</button>
                                         </div>
                                     @else
-                                        <p class=" badge rounded-pill m-0 text-bg-danger">Not Available</p>
-                                        <div class="d-flex flex-row-reverse" disabled>
-                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }})" disabled>Request</button>
+                                        <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
+                                        <div class="d-flex flex-row-reverse">
+                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')">Request</button>
                                         </div>
                                     @endif
                                 </div>
@@ -147,7 +142,8 @@
             location.reload()
         })
 
-        const tes = (id) => {
+        const tes = (id, name) => {
+            if (!confirm("Are you sure to choose " + name + "?")) return
             let senior_id = id
             $.ajax({
                 type: 'POST',
