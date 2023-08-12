@@ -15,31 +15,29 @@
 
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/detail.css') }}">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
 <body style="background-color: #120238;">
-    <div class="container p-2">
+    <div class="container my-2 px-3 py-4 h-100">
         <div class="card text-center">
-            <div class="card-header">
-                Petuah
-            </div>
             <div class="card-body text-center">
                 <img src="{{ asset('img/petuah/' . $senior->photo . '') }}" style="object-fit: cover"
                     class="img-fluid rounded mw-100 mb-3">
                 <h5 class="card-title text-mob">{{ $senior->user->name }}</h5>
                 <p class="card-text text-secondary">{{ $senior->major }}</p>
                 <p class="card-text fw-bold">Lokasi: {{ $senior->location }}</p>
-                <p class="card-text" style="text-align: justify">{{ $senior->description }}</p>
-                <a href="/home" class="btn btn-primary">Back</a>
+                <div class="desc-container mb-3">
+                    <p class="card-text" style="text-align: justify">{{ $senior->description }}</p>
+                </div>
+                <button class="nes-btn is-warning w-100"  onclick="location.href='{{ url('home' ) }}'">Back</button>
                 {{-- <a class="btn btn-success" onclick="tes({{ $senior->id }})">Request</a> --}}
             </div>
         </div>
-    </div>
-    <div class="alert alert-warning text-center" role="alert">
-        Sabar, nanti design-nya diubah lagi kok. <br>ITD 🤡
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

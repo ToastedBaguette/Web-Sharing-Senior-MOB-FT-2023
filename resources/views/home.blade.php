@@ -27,8 +27,23 @@
 
         }
 
+        .card {
+            background: rgba( 255, 255, 255, 1 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3px );
+            -webkit-backdrop-filter: blur( 3px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            box-shadow: 0px 0px 20px -4px rgba(221, 88, 214, 1);
+            margin: 0 0px;
+        }
+
         .card-kelompok .badge {
             width: 100px;
+        }
+
+        .card-kelompok .card-body p{
+            margin-bottom: 8px;
         }
 
         .nes-input {
@@ -57,7 +72,7 @@
 
 <body style="background-color: #120238;">
     <div class="container">
-        <div class="row mt-3">
+        <div class="row my-3 ">
             <div class="col-md-6 p3 p-md-4">
                 <div class="card card-kelompok">
                     <div class="card-body">
@@ -71,14 +86,19 @@
                                 @else
                                     <p>Status : <span class="badge bg-warning">Waiting</span></p>
                                 @endif
+                                
+                                @if($info == "-")
                                 <p class="card-text">Senior : {{ $info }}</p>
+                                @else
+                                <p class="card-text">Senior : <br> {{ $info }}</p>
+                                @endif
                             </div>
                             <div class="col d-flex justify-content-center align-items-center" style="flex-direction: column; gap:16px">
                                 <button class="nes-btn is-error" id="btn-logout" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</button>
                                 
                                     @if($accepted_id!="")
-                                    <button class="btn btn-rounded btn-outline-info"
+                                    <button class="nes-btn is-primary"
                                                 onclick="location.href='{{ url('detail/' . $accepted_id) }}'">
                                                 Detail
                                             </button>
@@ -92,44 +112,44 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row px-2">
-        @foreach ($seniors as $senior)
-            {{-- Card Petuah --}}
-            <div class="col-md-6 p-3 p-md-4">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="d-flex col-4">
-                            <img src="{{ asset('img/petuah/' . $senior->senior->photo . '') }}" style="object-fit: cover;"
-                                class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="w-100">
-                                    <p class="card-title text-mob mb-2 fs-10">{{ $senior->name }}</p>
-                                    {{-- <p class="card-text mb-2">{{ $senior->senior->major }}</p> --}}
-                                    @if (($group->is_waiting == 1) | ($group->is_success == 1))
-                                        <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
-                                        <div class="d-flex flex-row-reverse" disabled>
-                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')" disabled>Request</button>
-                                        </div>
-                                    @else
-                                        <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
-                                        <div class="d-flex flex-row-reverse">
-                                            <button class="btn btn-success" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')">Request</button>
-                                        </div>
-                                    @endif
-                                </div>
+        <div class="row">
+            @foreach ($seniors as $senior)
+                {{-- Card Petuah --}}
+                <div class="col-md-6 p-3 p-md-4">
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="d-flex col-4">
+                                <img src="{{ asset('img/petuah/' . $senior->senior->photo . '') }}" style="object-fit: cover;"
+                                    class="img-fluid rounded-start">
                             </div>
-
+                            <div class="col-8">
+                                <div class="card-body h-100 d-flex align-items-center">
+                                    <div class="w-100">
+                                        <p class="card-title text-mob mb-2 fs-10">{{ $senior->name }}</p>
+                                        {{-- <p class="card-text mb-2">{{ $senior->senior->major }}</p> --}}
+                                        @if (($group->is_waiting == 1) | ($group->is_success == 1))
+                                            <p class=" badge rounded-pill m-0 text-bg-warning">Available</p>
+                                            <div class="d-flex flex-row-reverse" disabled>
+                                                <button class="nes-btn is-disabled" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')" disabled>Request</button>
+                                            </div>
+                                        @else
+                                            <p class=" badge rounded-pill m-0 text-bg-success">Available</p>
+                                            <div class="d-flex flex-row-reverse">
+                                                <button class="nes-btn is-success" onclick="tes({{ $senior->senior->id }}, '{{ $senior->name }}')">Request</button>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+    
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-
+            @endforeach
+    
+        </div>
     </div>
-    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
