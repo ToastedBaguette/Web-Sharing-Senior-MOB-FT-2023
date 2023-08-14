@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login2');
 
-Auth::routes();
+Auth::routes(["register"=>false]);
 
 // Group
 Route::group(['middleware' => ['auth', 'group']],
